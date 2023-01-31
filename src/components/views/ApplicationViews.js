@@ -1,5 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom"
-
+import { SongSearch } from "../songs/SongSearch"
 
 export const ApplicationViews = () => {
 	return (
@@ -12,7 +12,7 @@ export const ApplicationViews = () => {
                     <Outlet />
                 </>
             }>
-                
+                <Route path="search" element={<SongSearch />} />
             </Route>
         </Routes>
     )
