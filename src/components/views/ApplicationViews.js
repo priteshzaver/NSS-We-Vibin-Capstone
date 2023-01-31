@@ -1,4 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { CreatePlaylist } from "../playlists/CreatePlaylist"
+import { MyPlaylist } from "../playlists/MyPlaylist"
 import { SongSearch } from "../songs/SongSearch"
 
 export const ApplicationViews = () => {
@@ -13,6 +15,8 @@ export const ApplicationViews = () => {
                 </>
             }>
                 <Route path="search" element={<SongSearch />} />
+                <Route path="myPlaylist" element={<MyPlaylist />} />
+                <Route path="createPlaylist" element={<CreatePlaylist />} />
             </Route>
         </Routes>
     )

@@ -6,6 +6,12 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item active">
+                <Link className="navbar__link" to="/myPlaylist">My Playlist</Link>
+            </li>
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/createPlaylist">Create Playlist</Link>
+            </li>
+            <li className="navbar__item active">
                 <Link className="navbar__link" to="/search">Search</Link>
             </li>
             {
