@@ -7,10 +7,10 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/playlists">Playlists</Link>
+                <Link className="navbar__link" to="/myPlaylists">My Playlists</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/myPlaylists">My Playlists</Link>
+                <Link className="navbar__link" to="/otherPlaylists">Other Playlists</Link>
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/createPlaylist">Create Playlist</Link>

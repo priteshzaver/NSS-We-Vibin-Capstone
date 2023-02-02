@@ -16,7 +16,7 @@ export const SongSearch = () => {
     const findSong = () => {
         return <button
             onClick={() => {
-                fetch(`https://api.spotify.com/v1/search?q=` + searchTerms + `&type=track&limit=10`, trackParameters)
+                fetch(`https://api.spotify.com/v1/search?q=` + searchTerms + `&type=track%2Cartist%2Calbum&limit=10`, trackParameters)
                     .then(response => response.json())
                     .then(data => {
                         setSongs(data.tracks.items)
@@ -41,7 +41,8 @@ export const SongSearch = () => {
                 {songs.map(song => <Songs key={`song--${song.id}`}
                     songArtist={song.artists[0].name}
                     songName={song.name}
-                    songId={song.id} />)}
+                    songId={song.id}
+                    songAlbum={song.album?.name} />)}
             </div>
         </section>
     )

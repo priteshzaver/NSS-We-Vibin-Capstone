@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { EachSongOnPlaylist } from "./EachSongOnPlaylist"
+import { EachUserSong } from "./EachUserSong"
 
-export const SongsOnPlaylist = () => {
+export const UserSongs = () => {
     const [playlist, setPlaylist] = useState([])
     const [playlistSongs, setPlaylistSongs] = useState([])
     const { playlistId } = useParams()
@@ -24,7 +24,7 @@ export const SongsOnPlaylist = () => {
     
 
     return <>
-        {playlistSongs.map(song => <EachSongOnPlaylist key={song.id}
+        {playlistSongs.map(song => <EachUserSong key={song.id}
             songObject={song}
             playlist={playlist}
             />

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-export const EachSongOnPlaylist = ({songObject, playlist}) => {
+export const EachUserSong = ({songObject, playlist}) => {
     const localSpotifyUser = localStorage.getItem("spotify_user")
     const spotifyUser = JSON.parse(localSpotifyUser)
     const navigate = useNavigate()

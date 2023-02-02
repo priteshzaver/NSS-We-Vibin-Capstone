@@ -1,9 +1,9 @@
 import { Outlet, Route, Routes } from "react-router-dom"
-import { AllPlaylists } from "../playlists/AllPlaylists"
-import { CreatePlaylist } from "../playlists/CreatePlaylist"
 import { MyPlaylists } from "../playlists/MyPlaylists"
-import { PlaylistSongs } from "../playlists/PlaylistSongs"
-import { SongsOnPlaylist } from "../playlists/SongsOnPlaylist"
+import { CreatePlaylist } from "../playlists/CreatePlaylist"
+import { OtherUsersPlaylists } from "../playlists/OtherUsersPlaylists"
+import { OtherPlaylistSongs } from "../playlists/OtherPlaylistSongs"
+import { UserSongs } from "../playlists/UserSongs"
 import { SongSearch } from "../songs/SongSearch"
 
 export const ApplicationViews = () => {
@@ -17,12 +17,12 @@ export const ApplicationViews = () => {
                     <Outlet />
                 </>
             }>
-                <Route path="playlists" element={<AllPlaylists />} />
-                <Route path="playlists/:playlistId/songs" element={<SongsOnPlaylist />} />
-                <Route path="search" element={<SongSearch />} />
                 <Route path="myPlaylists" element={<MyPlaylists />} />
+                <Route path="myPlaylists/:playlistId/songs" element={<UserSongs />} />
+                <Route path="search" element={<SongSearch />} />
+                <Route path="otherPlaylists" element={<OtherUsersPlaylists />} />
+                <Route path="otherPlaylists/:playlistId/songs" element={<OtherPlaylistSongs />} />
                 <Route path="createPlaylist" element={<CreatePlaylist />} />
-                <Route path="myPlaylists/:playlistId" element={<PlaylistSongs />} />
             </Route>
         </Routes>
     )

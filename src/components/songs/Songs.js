@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export const Songs = ({ songName, songId, songArtist }) => {
+export const Songs = ({ songName, songId, songArtist, songAlbum }) => {
     const [listPlaylists, setListPlaylists] = useState([])
     const [playlistSongs, setPlaylistSongs] = useState({
         songId: songId,
@@ -46,8 +46,9 @@ export const Songs = ({ songName, songId, songArtist }) => {
     return (
         <form>
             <section>
-                <header>{songName}</header>
-                <div>{songArtist}</div>
+                <header>Title: {songName}</header>
+                <div>Artist: {songArtist}</div>
+                <div>Album: {songAlbum}</div>
             </section>
             <fieldset>
                 <div>Select playlist to save to:</div>
