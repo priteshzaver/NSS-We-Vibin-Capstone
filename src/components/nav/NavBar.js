@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import "./NavBar.css"
 
 export const NavBar = () => {
     const navigate = useNavigate()
@@ -6,7 +7,10 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/myPlaylist">My Playlist</Link>
+                <Link className="navbar__link" to="/playlists">Playlists</Link>
+            </li>
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/myPlaylists">My Playlists</Link>
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/createPlaylist">Create Playlist</Link>

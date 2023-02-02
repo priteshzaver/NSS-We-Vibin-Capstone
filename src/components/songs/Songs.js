@@ -4,6 +4,8 @@ export const Songs = ({ songName, songId, songArtist }) => {
     const [listPlaylists, setListPlaylists] = useState([])
     const [playlistSongs, setPlaylistSongs] = useState({
         songId: songId,
+        songName: songName,
+        artistName: songArtist,
         playlistId: 0
     })
     const localSpotifyUser = localStorage.getItem("spotify_user")
@@ -27,7 +29,9 @@ export const Songs = ({ songName, songId, songArtist }) => {
                     },
                     body: JSON.stringify({
                         playlistId: playlistSongs.playlistId,
-                        songId: songId
+                        songId: songId,
+                        artistName: playlistSongs.artistName,
+                        songName: playlistSongs.songName
                     })
                 })
                     .then(response => response.json())

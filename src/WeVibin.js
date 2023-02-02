@@ -13,8 +13,8 @@ export const WeVibin = () => {
     <Route path="*" element={
         <Authorized>
             <>
-                <ApplicationViews/>
                 <NavBar/>
+                <ApplicationViews/>
             </>
         </Authorized>
 
