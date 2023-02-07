@@ -1,9 +1,8 @@
 import './App.css';
 import { createContext, useEffect, useState } from 'react';
 import { WeVibin } from './WeVibin';
+import apiKeys from "./AccessTokens"
 
-const CLIENT_ID = "85455d359c974304b0a53b4c2a461635"
-const CLIENT_SECRET = "54222d53b5a4489999fd67c08863fefd"
 const TokenContext = createContext()
 
 export const SpotifyAccess = () => {
@@ -15,7 +14,7 @@ export const SpotifyAccess = () => {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: "grant_type=client_credentials&client_id=" + CLIENT_ID + "&client_secret=" + CLIENT_SECRET
+            body: "grant_type=client_credentials&client_id=" + apiKeys.CLIENT_ID + "&client_secret=" + apiKeys.CLIENT_SECRET
         }
 
         fetch("https://accounts.spotify.com/api/token", authParameters)
