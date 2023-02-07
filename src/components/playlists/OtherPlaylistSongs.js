@@ -14,9 +14,9 @@ export const OtherPlaylistSongs = () => {
             })
     }, [])
     
-    return <section>
+    return <article className="grid gap-10 mt-2">
         {playlistSongs.map(song => <OtherUserSong key={`song--${song.id}`}
             songObject={song}/>
             )}
-    </section>
+    </article>
 }

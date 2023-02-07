@@ -21,9 +21,9 @@ export const OtherUsersPlaylists = () => {
     }, [otherPlaylists])
 
     return <>
-        <h2>Other Users Playlists</h2>
+        <h2 className="text-white text-4xl flex justify-center py-2">Other Users Playlists</h2>
 
-        <article>
+        <article className="grid grid-cols-3 gap-10">
             {otherFilteredPlaylists.map(playlist => <OtherPlaylist key={`playlist--${playlist.id}`}
                 otherPlaylistObject={playlist}
                 />

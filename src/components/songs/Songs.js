@@ -44,8 +44,8 @@ export const Songs = ({ songName, songId, songArtist, songAlbum }) => {
     }
 
     return (
-        <form>
-            <section>
+        <form className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-6">
+            <section >
                 <header>Title: {songName}</header>
                 <div>Artist: {songArtist}</div>
                 <div>Album: {songAlbum}</div>
