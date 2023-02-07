@@ -23,11 +23,11 @@ export const UserSongs = () => {
     }, [])
     
 
-    return <>
+    return <article className="grid gap-10 mt-2">
         {playlistSongs.map(song => <EachUserSong key={song.id}
             songObject={song}
             playlist={playlist}
             />
         )}
-    </>
+    </article>
 }

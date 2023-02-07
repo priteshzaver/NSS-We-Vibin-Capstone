@@ -1,33 +1,37 @@
 import { Link, useNavigate } from "react-router-dom"
-import "./NavBar.css"
+
 
 export const NavBar = () => {
     const navigate = useNavigate()
 
     return (
-        <ul className="navbar">
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/myPlaylists">My Playlists</Link>
-            </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/otherPlaylists">Other Playlists</Link>
-            </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/createPlaylist">Create Playlist</Link>
-            </li>
-            <li className="navbar__item active">
-                <Link className="navbar__link" to="/search">Search</Link>
-            </li>
-            {
-                localStorage.getItem("spotify_user")
-                    ? <li className="navbar__item navbar__logout">
-                        <Link className="navbar__link" to="" onClick={() => {
-                            localStorage.removeItem("spotify_user")
-                            navigate("/", {replace: true})
-                        }}>Logout</Link>
-                    </li>
-                    : ""
-            }
-        </ul>
+        <>
+            <h1 className="text-5xl text-white ml-4">We Vibin'</h1>
+            <div className="text-3xl text-white ml-4">Share and explore music with your friends</div>
+            <ul className="w-44 sticky bg-slate-700 rounded-md float-left flex flex-col items-center mt-2 ml-2 space-y-2">
+                <li className="cursor-pointer text-white text-2xl hover:bg-sky-600 rounded-md container">
+                    <Link to="/myPlaylists">My Playlists</Link>
+                </li>
+                <li className="cursor-pointer text-white text-2xl hover:bg-sky-600 rounded-md container">
+                    <Link to="/otherPlaylists">Other Playlists</Link>
+                </li>
+                <li className="cursor-pointer text-white text-2xl hover:bg-sky-600 rounded-md container">
+                    <Link to="/createPlaylist">Create Playlist</Link>
+                </li>
+                <li className="cursor-pointer text-white text-2xl hover:bg-sky-600 rounded-md container">
+                    <Link to="/search">Search</Link>
+                </li>
+                {
+                    localStorage.getItem("spotify_user")
+                        ? <li className="cursor-pointer text-white text-2xl hover:bg-sky-600 rounded-md container">
+                            <Link to="" onClick={() => {
+                                localStorage.removeItem("spotify_user")
+                                navigate("/", { replace: true })
+                            }}>Logout</Link>
+                        </li>
+                        : ""
+                }
+            </ul>
+        </>
     )
 }

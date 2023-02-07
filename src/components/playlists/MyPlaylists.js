@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import "./Playlists.css"
+
 import { UserPlaylist } from "./UserPlaylist"
 
 export const MyPlaylists = () => {
@@ -23,9 +23,9 @@ export const MyPlaylists = () => {
     }, [allPlaylists])
 
     return <>
-        <h2>My Playlists</h2>
+        <h2 className="text-white text-4xl flex justify-center py-2">My Playlists</h2>
 
-        <article className="playlists">
+        <article className="grid grid-cols-3 gap-10">
             {filteredPlaylists.map(playlist => <UserPlaylist key={`playlist--${playlist.id}`}
                 playlistObject={playlist}/>
             )}

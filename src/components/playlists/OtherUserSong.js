@@ -47,7 +47,7 @@ export const OtherUserSong = ({ songObject }) => {
             })
     }
 
-    return <>
+    return <section className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-6">
         <header>Title: {songObject.songName}</header>
         <div>Artist: {songObject.artistName}</div>
         <form>
@@ -74,5 +74,5 @@ export const OtherUserSong = ({ songObject }) => {
                 Save Song
             </button>
         </form>
-    </>
+    </section>
 }

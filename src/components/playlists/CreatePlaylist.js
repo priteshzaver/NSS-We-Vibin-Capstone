@@ -10,7 +10,7 @@ export const CreatePlaylist = () => {
     const navigate = useNavigate()
     const localSpotifyUser = localStorage.getItem("spotify_user")
     const spotifyUser = JSON.parse(localSpotifyUser)
-    
+
     const createPlaylistButton = (event) => {
         event.preventDefault()
         const playlistToSendToApi = {
@@ -25,55 +25,54 @@ export const CreatePlaylist = () => {
             },
             body: JSON.stringify(playlistToSendToApi)
         })
-        .then(() => {
-            navigate("/myPlaylist")
-        })
+            .then(() => {
+                navigate("/myPlaylists")
+            })
 
     }
 
     return (
-        <form className="createPlaylistForm">
-            <h2 className="createPlaylistForm__title">New Playlist</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="playlistName">Playlist Name:</label>
-                    <input
-                        required autoFocus
-                        type="text"
-                        className="form-control"
-                        playholder="Playlist Name"
-                        value={playlist.playlistName}
-                        onChange={
-                            (event) => {
-                                const copy = {...playlist}
-                                copy.playlistName = event.target.value
-                                setPlaylist(copy)
-                            }
-                        }/>
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="playlistDescription">Playlist Description:</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        playholder="Playlist Description"
-                        value={playlist.description}
-                        onChange={
-                            (event) => {
-                                const copy = {...playlist}
-                                copy.description = event.target.value
-                                setPlaylist(copy)
-                            }
-                        }/>
-                </div>
-            </fieldset>
-            <button 
-                onClick={(clickEvent) => createPlaylistButton(clickEvent)}
-                className="btn btn-primary">
-                Create Playlist
-            </button>
-        </form>
+        <article className="grid">
+            <h2 className="text-white text-4xl flex justify-center py-2">Create New Playlist</h2>
+            <form className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-4   ">
+                <fieldset>
+                    <div>
+                        <label>Playlist Name:</label>
+                        <input
+                            required autoFocus
+                            type="text"
+                            playholder="Playlist Name"
+                            value={playlist.playlistName}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...playlist }
+                                    copy.playlistName = event.target.value
+                                    setPlaylist(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div>
+                        <label>Playlist Description:</label>
+                        <input
+                            type="text"
+                            playholder="Playlist Description"
+                            value={playlist.description}
+                            onChange={
+                                (event) => {
+                                    const copy = { ...playlist }
+                                    copy.description = event.target.value
+                                    setPlaylist(copy)
+                                }
+                            } />
+                    </div>
+                </fieldset>
+                <button className="border-white border-2"
+                    onClick={(clickEvent) => createPlaylistButton(clickEvent)}>
+                    Create Playlist
+                </button>
+            </form>
+        </article>
     )
 }
