@@ -2,6 +2,18 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const OtherUserSong = ({ songObject }) => {
+    function padTo2Digits(num) {
+        return num.toString().padStart(2, '0');
+    }
+    const convertMsToMinutesSeconds = (milliseconds) => {
+        const minutes = Math.floor(milliseconds / 60000);
+        const seconds = Math.round((milliseconds % 60000) / 1000);
+
+        return seconds === 60
+            ? `${minutes + 1}:00`
+            : `${minutes}:${padTo2Digits(seconds)}`;
+    }
+    const convertedDuration = convertMsToMinutesSeconds(songObject.songDuration)
     const [saveSong, setSaveSong] = useState({
        playlistId: 0 
     })
@@ -32,6 +44,7 @@ export const OtherUserSong = ({ songObject }) => {
             songId: songObject.songId,
             artistName: songObject.artistName,
             songName: songObject.songName,
+            songDuration: songObject.songDuration
         }
 
         return fetch(`http://localhost:8088/playlistSongs`, {
@@ -50,6 +63,7 @@ export const OtherUserSong = ({ songObject }) => {
     return <section className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-6">
         <header>Title: {songObject.songName}</header>
         <div>Artist: {songObject.artistName}</div>
+        <div>Duration: {convertedDuration}</div>
         <form>
             <fieldset>
                 <div>Save To Playlist:</div>

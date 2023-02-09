@@ -40,6 +40,7 @@ export const CreatePlaylist = () => {
                         <label>Playlist Name:</label>
                         <input
                             required autoFocus
+                            className="border-lime-500 border-2"
                             type="text"
                             playholder="Playlist Name"
                             value={playlist.playlistName}
@@ -57,6 +58,7 @@ export const CreatePlaylist = () => {
                         <label>Playlist Description:</label>
                         <input
                             type="text"
+                            className="border-lime-500 border-2"
                             playholder="Playlist Description"
                             value={playlist.description}
                             onChange={
