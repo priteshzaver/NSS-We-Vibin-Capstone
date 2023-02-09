@@ -42,7 +42,8 @@ export const SongSearch = () => {
                     songArtist={song.artists[0].name}
                     songName={song.name}
                     songId={song.id}
-                    songAlbum={song.album?.name} />)}
+                    songAlbum={song.album?.name}
+                    songDuration={song.duration_ms} />)}
             </div>
         </section>
     )

@@ -1,12 +1,25 @@
 import { useEffect, useState } from "react"
 
-export const Songs = ({ songName, songId, songArtist, songAlbum }) => {
+export const Songs = ({ songName, songId, songArtist, songAlbum, songDuration }) => {
     const [listPlaylists, setListPlaylists] = useState([])
+    function padTo2Digits(num) {
+        return num.toString().padStart(2, '0');
+    }
+    const convertMsToMinutesSeconds = (milliseconds) => {
+        const minutes = Math.floor(milliseconds / 60000);
+        const seconds = Math.round((milliseconds % 60000) / 1000);
+
+        return seconds === 60
+            ? `${minutes + 1}:00`
+            : `${minutes}:${padTo2Digits(seconds)}`;
+    }
+    const convertedDuration = convertMsToMinutesSeconds(songDuration)
     const [playlistSongs, setPlaylistSongs] = useState({
         songId: songId,
         songName: songName,
         artistName: songArtist,
-        playlistId: 0
+        playlistId: 0,
+        songDuration: convertedDuration
     })
     const localSpotifyUser = localStorage.getItem("spotify_user")
     const spotifyUser = JSON.parse(localSpotifyUser)
@@ -31,7 +44,8 @@ export const Songs = ({ songName, songId, songArtist, songAlbum }) => {
                         playlistId: playlistSongs.playlistId,
                         songId: songId,
                         artistName: playlistSongs.artistName,
-                        songName: playlistSongs.songName
+                        songName: playlistSongs.songName,
+                        songDuration: songDuration
                     })
                 })
                     .then(response => response.json())
@@ -49,6 +63,7 @@ export const Songs = ({ songName, songId, songArtist, songAlbum }) => {
                 <header>Title: {songName}</header>
                 <div>Artist: {songArtist}</div>
                 <div>Album: {songAlbum}</div>
+                <div>Duration: {convertedDuration}</div>
             </section>
             <fieldset>
                 <div>Select playlist to save to:</div>

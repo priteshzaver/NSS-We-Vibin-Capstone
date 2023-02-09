@@ -24,6 +24,7 @@ export const UserSongs = () => {
     
 
     return <article className="grid gap-10 mt-2">
+            <h2 className="text-white text-4xl flex justify-center py-2">{playlist.playlistName}</h2>
         {playlistSongs.map(song => <EachUserSong key={song.id}
             songObject={song}
             playlist={playlist}
