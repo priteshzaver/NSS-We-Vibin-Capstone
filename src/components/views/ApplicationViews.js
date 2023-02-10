@@ -5,6 +5,7 @@ import { OtherUsersPlaylists } from "../playlists/OtherUsersPlaylists"
 import { OtherPlaylistSongs } from "../playlists/OtherPlaylistSongs"
 import { UserSongs } from "../playlists/UserSongs"
 import { SongSearch } from "../songs/SongSearch"
+import { MusicContainer } from "../songs/MusicContainer"
 
 export const ApplicationViews = () => {
 	return (
@@ -18,10 +19,11 @@ export const ApplicationViews = () => {
             }>
                 <Route path="myPlaylists" element={<MyPlaylists />} />
                 <Route path="myPlaylists/:playlistId/songs" element={<UserSongs />} />
-                <Route path="search" element={<SongSearch />} />
+                <Route path="search" element={<MusicContainer />} />
                 <Route path="otherPlaylists" element={<OtherUsersPlaylists />} />
                 <Route path="otherPlaylists/:playlistId/songs" element={<OtherPlaylistSongs />} />
                 <Route path="createPlaylist" element={<CreatePlaylist />} />
+                
             </Route>
         </Routes>
     )

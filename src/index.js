@@ -4,11 +4,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { SpotifyAccess } from './SpotifyAccess'
+import { SpotifyScopeToken } from './SpotifyScopeTokens';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <SpotifyAccess />
+    <SpotifyScopeToken />
   </BrowserRouter>
 );
 
