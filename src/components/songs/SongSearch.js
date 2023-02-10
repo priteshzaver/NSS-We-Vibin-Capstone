@@ -3,7 +3,7 @@ import TokenContext from "../../SpotifyAccess"
 import { MusicPlayer } from "../musicplayer/MusicPlayer"
 import { Songs } from "./Songs"
 
-export const SongSearch = ({setterFunction}) => {
+export const SongSearch = ({ setterFunction }) => {
     const [songs, setSongs] = useState([])
     const [searchTerms, setSearchTerms] = useState("")
     const accessToken = useContext(TokenContext)
@@ -26,34 +26,35 @@ export const SongSearch = ({setterFunction}) => {
             Search
         </button>
     }
-   
+
 
 
     return (
         <article className="grid">
-        <section  className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-11">
-            <div className="text-black">
-                <input
-                    onChange={
-                        (changeEvent) => {
-                            setSearchTerms(changeEvent.target.value)
+            <h2 className="text-white text-4xl flex justify-center py-2 underline">Search For New Vibes</h2>
+            <section className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-11">
+                <div className="text-black">
+                    <input
+                        onChange={
+                            (changeEvent) => {
+                                setSearchTerms(changeEvent.target.value)
+                            }
                         }
-                    }
-                    type="text" placeholder="Enter search terms" />
-                {findSong()}
-            </div>
-            <div className="grid grid-cols-3">
-                {songs.map(song => <Songs key={`song--${song.id}`}
-                    songArtist={song.artists[0].name}
-                    songName={song.name}
-                    songId={song.id}
-                    songAlbum={song.album?.name}
-                    trackUri={song.uri}
-                    setterFunction={setterFunction}
-                    songDuration={song.duration_ms} />)}
-            </div>
-            
-        </section>
+                        type="text" placeholder="Enter search terms" />
+                    {findSong()}
+                </div>
+                <div className="grid grid-cols-3">
+                    {songs.map(song => <Songs key={`song--${song.id}`}
+                        songArtist={song.artists[0].name}
+                        songName={song.name}
+                        songId={song.id}
+                        songAlbum={song.album?.name}
+                        trackUri={song.uri}
+                        setterFunction={setterFunction}
+                        songDuration={song.duration_ms} />)}
+                </div>
+
+            </section>
         </article>
     )
 }

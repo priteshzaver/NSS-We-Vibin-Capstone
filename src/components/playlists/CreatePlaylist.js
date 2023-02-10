@@ -33,7 +33,7 @@ export const CreatePlaylist = () => {
 
     return (
         <article className="grid">
-            <h2 className="text-white text-4xl flex justify-center py-2">Create New Playlist</h2>
+            <h2 className="text-white text-4xl flex justify-center py-2 underline">Create New Vibes</h2>
             <form className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-4">
                 <fieldset>
                     <div>

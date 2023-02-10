@@ -20,7 +20,7 @@ export const MyPlaylists = () => {
     }, [allPlaylists])
 
     return <>
-        <h2 className="text-white text-4xl flex justify-center py-2">My Playlists</h2>
+        <h2 className="text-white underline text-4xl flex justify-center py-2">My Vibes</h2>
         <article className="grid grid-cols-3 gap-10">
             {filteredPlaylists.map(playlist => <UserPlaylist key={`playlist--${playlist.id}`}
                 playlistObject={playlist}/>
