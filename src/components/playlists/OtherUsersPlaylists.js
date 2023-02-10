@@ -8,13 +8,12 @@ export const OtherUsersPlaylists = () => {
     const spotifyUser = JSON.parse(localSpotifyUser)
 
     useEffect(() => {
-        fetch(`http://localhost:8088/playlists?_expand=user`)
+        fetch(`http://localhost:8088/playlists?_expand=user&_embed=playlistSongs`)
             .then(response => response.json())
             .then((data) => {
                 setOtherPlaylists(data)
             })
     }, [])
-    
     useEffect(() => {
         const myPlaylists = otherPlaylists.filter(playlist => playlist.userId !== spotifyUser.id)
         setOtherFilteredPlaylists(myPlaylists)
@@ -22,13 +21,10 @@ export const OtherUsersPlaylists = () => {
 
     return <>
         <h2 className="text-white text-4xl flex justify-center py-2">Other Users Playlists</h2>
-
         <article className="grid grid-cols-3 gap-10">
             {otherFilteredPlaylists.map(playlist => <OtherPlaylist key={`playlist--${playlist.id}`}
-                otherPlaylistObject={playlist}
-                />
+                otherPlaylistObject={playlist}/>
             )}
         </article>
-        
         </>
 }

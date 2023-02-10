@@ -48,7 +48,8 @@ export const SongSearch = ({setterFunction}) => {
                     songId={song.id}
                     songAlbum={song.album?.name}
                     trackUri={song.uri}
-                    setterFunction={setterFunction} />)}
+                    setterFunction={setterFunction}
+                    songDuration={song.duration_ms} />)}
             </div>
             
         </section>
