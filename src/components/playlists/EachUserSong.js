@@ -23,7 +23,7 @@ export const EachUserSong = ({ songObject, playlist }) => {
                     method: "DELETE"
                 })
                     .then(() => {
-                        navigate("/playlists")
+                        navigate("/myPlaylists")
                     })
             }}>
                 Delete Song

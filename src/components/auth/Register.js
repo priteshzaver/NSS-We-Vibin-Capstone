@@ -19,7 +19,7 @@ export const Register = (props) => {
             .then(res => res.json())
             .then(createdUser => {
                 if (createdUser.hasOwnProperty("id")) {
-                    localStorage.setItem("honey_user", JSON.stringify({
+                    localStorage.setItem("spotify_user", JSON.stringify({
                         id: createdUser.id
                     }))
 
@@ -45,31 +45,43 @@ export const Register = (props) => {
     }
 
     const updateCustomer = (evt) => {
-        const copy = {...customer}
+        const copy = { ...customer }
         copy[evt.target.id] = evt.target.value
         setCustomer(copy)
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Honey Rae Repairs</h1>
-                <fieldset>
-                    <label htmlFor="fullName"> Full Name </label>
-                    <input onChange={updateCustomer}
-                           type="text" id="fullName" className="form-control"
-                           placeholder="Enter your name" required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="email"> Email address </label>
-                    <input onChange={updateCustomer}
-                        type="email" id="email" className="form-control"
-                        placeholder="Email address" required />
-                </fieldset>
-                <fieldset>
-                    <button type="submit"> Register </button>
-                </fieldset>
-            </form>
+        <main>
+            <div className="bg-white bg-opacity-40 border-white border-2 border-opacity-30 h-60 w-80 mx-auto rounded-lg flex flex-col justify-center items-center space-y-8 shadow-2xl shadow-emerald-400">
+                <h1 className="text-white text-4xl">PLEASE REGISTER</h1>
+                <form onSubmit={handleRegister}>
+                    <fieldset className="flex flex-col">
+                        <label className="text-white"> Full Name </label>
+                        <input onChange={updateCustomer}
+                            className="border-lime-500 border-2"
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your name"
+                            required autoFocus />
+                    </fieldset>
+                    <fieldset className="flex flex-col">
+                        <label className="text-white"> Email address </label>
+                        <input onChange={updateCustomer}
+                            className="border-lime-500 border-2"
+                            type="email"
+                            id="email"
+                            placeholder="Email address"
+                            required />
+                    </fieldset>
+                    <fieldset>
+                        <button
+                            className="bg-green-500 hover:bg-green-700 text-white font-bold mt-2 px-16 rounded-full"
+                            type="submit">
+                            Register
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
         </main>
     )
 }
