@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export const Songs = ({ songName, songId, songArtist, songAlbum, songDuration }) => {
+export const Songs = ({ songName, songId, songArtist, songAlbum, trackUri, setterFunction, songDuration }) => {
     const [listPlaylists, setListPlaylists] = useState([])
     function padTo2Digits(num) {
         return num.toString().padStart(2, '0');
@@ -34,7 +34,8 @@ export const Songs = ({ songName, songId, songArtist, songAlbum, songDuration })
 
     const saveSong = () => {
         return <button
-            onClick={() => {
+            onClick={(event) => {
+                event.preventDefault()
                 fetch(`http://localhost:8088/playlistSongs`, {
                     method: "POST",
                     headers: {
@@ -56,14 +57,23 @@ export const Songs = ({ songName, songId, songArtist, songAlbum, songDuration })
             Save Song
         </button>
     }
+    
 
     return (
-        <form className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-6">
+        <form className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-6 my-4">
             <section >
                 <header>Title: {songName}</header>
                 <div>Artist: {songArtist}</div>
                 <div>Album: {songAlbum}</div>
                 <div>Duration: {convertedDuration}</div>
+                <button
+                    className="border-green-500 border-4"
+                    value={trackUri}
+                    onClick={(clickevent) => {
+                        clickevent.preventDefault()
+                        setterFunction(clickevent.target.value)
+                    }}
+                >Play</button>
             </section>
             <fieldset>
                 <div>Select playlist to save to:</div>
@@ -97,3 +107,12 @@ export const Songs = ({ songName, songId, songArtist, songAlbum, songDuration })
         </form>
     )
 }
+
+// const playSong = (event) => {
+//     return <button
+//         onClick={(event) => {
+//             setterFunction(trackUri)
+//         }}>
+//         Play Song
+//     </button>
+// }

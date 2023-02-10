@@ -1,8 +1,9 @@
 import { useContext, useState } from "react"
 import TokenContext from "../../SpotifyAccess"
+import { MusicPlayer } from "../musicplayer/MusicPlayer"
 import { Songs } from "./Songs"
 
-export const SongSearch = () => {
+export const SongSearch = ({setterFunction}) => {
     const [songs, setSongs] = useState([])
     const [searchTerms, setSearchTerms] = useState("")
     const accessToken = useContext(TokenContext)
@@ -25,9 +26,12 @@ export const SongSearch = () => {
             Search
         </button>
     }
+   
+
+
     return (
         <section>
-            <div>
+            <div className="">
                 <input
                     onChange={
                         (changeEvent) => {
@@ -37,14 +41,22 @@ export const SongSearch = () => {
                     type="text" placeholder="Enter search terms" />
                 {findSong()}
             </div>
-            <div  className="grid grid-cols-3">
+            <div className="grid grid-cols-3">
                 {songs.map(song => <Songs key={`song--${song.id}`}
                     songArtist={song.artists[0].name}
                     songName={song.name}
                     songId={song.id}
                     songAlbum={song.album?.name}
+                    trackUri={song.uri}
+                    setterFunction={setterFunction}
                     songDuration={song.duration_ms} />)}
             </div>
+            
         </section>
     )
 }
+
+{/* <div>
+                {songs.map(song => <MusicPlayer key={`song--${song.id}`}
+                    trackUri={song.uri} />)}
+            </div> */}
