@@ -25,6 +25,6 @@ export const OtherPlaylist = ({ otherPlaylistObject }) => {
             </div>
         <div>{otherPlaylistObject.description}</div>
         <div>{otherPlaylistObject.playlistSongs?.length} song(s)</div>
-        <div>{convertedDuration}</div>
+        <div>Duration: {convertedDuration}</div>
     </section>
 }
