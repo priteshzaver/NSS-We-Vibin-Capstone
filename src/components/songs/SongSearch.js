@@ -32,7 +32,7 @@ export const SongSearch = ({ setterFunction }) => {
     return (
         <article className="grid">
             <h2 className="text-white text-4xl flex justify-center py-2 underline">Search For New Vibes</h2>
-            <section className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-4">
+            <section className="bg-white bg-opacity-40 rounded shadow-lg shadow-emerald-400 text-white border-2 border-opacity-30 mx-4">
 
                 <div className="flex items-center my-3">
                     <div className="mx-2 text-black">
@@ -40,6 +40,7 @@ export const SongSearch = ({ setterFunction }) => {
                             type="text"
                             placeholder="Enter search terms"
                             size="30"
+                            className="pl-1"
                             onChange={
                                 (changeEvent) => {
                                     setSearchTerms(changeEvent.target.value)
