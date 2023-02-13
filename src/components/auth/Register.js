@@ -52,10 +52,11 @@ export const Register = (props) => {
 
     return (
         <main>
-            <div className="bg-white bg-opacity-40 border-white border-2 border-opacity-30 h-60 w-80 mx-auto rounded-lg flex flex-col justify-center items-center space-y-8 shadow-2xl shadow-emerald-400">
-                <h1 className="text-white text-4xl">PLEASE REGISTER</h1>
+            <div className="bg-white bg-opacity-40 border-white border-2 border-opacity-30 h-60 w-80 mx-auto rounded-lg flex flex-col justify-center items-center space-y-4 shadow-2xl shadow-emerald-400 mt-11">
+                <h2 className="text-white text-4xl">PLEASE REGISTER</h2>
                 <form onSubmit={handleRegister}>
-                    <fieldset className="flex flex-col">
+                    <div className="mb-6">
+                    <fieldset className="flex flex-col mb-2">
                         <label className="text-white"> Full Name </label>
                         <input onChange={updateCustomer}
                             className="border-lime-500 border-2"
@@ -73,9 +74,10 @@ export const Register = (props) => {
                             placeholder="Email address"
                             required />
                     </fieldset>
+                    </div>
                     <fieldset>
                         <button
-                            className="bg-green-500 hover:bg-green-700 text-white font-bold mt-2 px-16 rounded-full"
+                            className="bg-green-500 hover:bg-green-700 text-white font-bold px-16 rounded-full"
                             type="submit">
                             Register
                         </button>

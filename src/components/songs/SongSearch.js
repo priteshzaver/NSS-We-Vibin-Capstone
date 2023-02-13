@@ -15,7 +15,7 @@ export const SongSearch = ({ setterFunction }) => {
         }
     }
     const findSong = () => {
-        return <button className="border-white border-2 bg-slate-700 hover:bg-green-500"
+        return <button className="border-white border-2 bg-slate-700 hover:bg-green-500 px-3 rounded-md"
             onClick={() => {
                 fetch(`https://api.spotify.com/v1/search?q=` + searchTerms + `&type=track%2Cartist%2Calbum&limit=10`, trackParameters)
                     .then(response => response.json())
@@ -37,12 +37,14 @@ export const SongSearch = ({ setterFunction }) => {
                 <div className="flex items-center my-3">
                     <div className="mx-2 text-black">
                         <input
+                            type="text"
+                            placeholder="Enter search terms"
+                            size="30"
                             onChange={
                                 (changeEvent) => {
                                     setSearchTerms(changeEvent.target.value)
                                 }
-                            }
-                            type="text" placeholder="Enter search terms" />
+                            } />
                     </div>
                     <div>
                         {findSong()}

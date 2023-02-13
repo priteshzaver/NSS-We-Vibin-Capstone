@@ -75,7 +75,7 @@ export const CreatePlaylist = () => {
                 </div>
                 <div>
                 <button
-                    className="border-white border-2 bg-slate-700 hover:bg-green-500 px-8"
+                    className="border-white border-2 bg-slate-700 hover:bg-green-500 px-8 rounded-md"
                     onClick={(clickEvent) => createPlaylistButton(clickEvent)}>
                     Create Playlist
                 </button>
