@@ -31,7 +31,7 @@ export const SpotifyScopeToken = () => {
 
     return (
         <div >
-            <header >
+            <header>
                 
                 {!token ?
                     <a href={`${AUTH_ENDPOINT}?client_id=${apiKeys.CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`} className="text-white">Login

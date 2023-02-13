@@ -25,7 +25,7 @@ export const Login = () => {
             })
     }
     return (
-        <div className="bg-white bg-opacity-40 border-white border-2 border-opacity-30 h-60 w-80 mx-auto rounded-lg flex flex-col justify-center items-center space-y-8 shadow-2xl shadow-emerald-400">
+        <div className="bg-white bg-opacity-40 border-white border-2 border-opacity-30 h-60 w-80 mx-auto rounded-lg flex flex-col justify-center items-center space-y-8 shadow-2xl shadow-emerald-400 mt-11">
             <h2 className="text-white text-4xl">LOGIN</h2>
             <form className="mx-auto" onSubmit={handleLogin}>
                 <fieldset className="flex flex-col mb-6">

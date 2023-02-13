@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export const OtherPlaylist = ({ otherPlaylistObject }) => {
     let sum = 0
-    otherPlaylistObject.playlistSongs.forEach(function(item) {
+    otherPlaylistObject.playlistSongs.forEach(function (item) {
         sum += item.songDuration
     })
     function padTo2Digits(num) {
@@ -17,14 +17,16 @@ export const OtherPlaylist = ({ otherPlaylistObject }) => {
             : `${minutes}:${padTo2Digits(seconds)}`;
     }
     const convertedDuration = convertMsToMinutesSeconds(sum)
-    
-    return <section className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-6">
-        <header>Owner: {otherPlaylistObject.user?.fullName}</header>
-        <div className="underline text-2xl">
+
+    return <section className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-6 grid justify-items-center">
+        <header className="underline text-2xl">
             <Link to={`/otherPlaylists/${otherPlaylistObject.id}/songs`}>{otherPlaylistObject.playlistName}</Link>
-            </div>
+        </header>
         <div>{otherPlaylistObject.description}</div>
-        <div>{otherPlaylistObject.playlistSongs?.length} song(s)</div>
-        <div>Duration: {convertedDuration}</div>
+        <div className="grid grid-cols-2">
+            <div>{otherPlaylistObject.playlistSongs?.length} song(s)</div>
+            <div>Duration: {convertedDuration}</div>
+        </div>
+        <div>Owner: {otherPlaylistObject.user?.fullName}</div>
     </section>
 }

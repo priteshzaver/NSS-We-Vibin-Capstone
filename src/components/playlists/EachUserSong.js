@@ -21,14 +21,14 @@ export const EachUserSong = ({ songObject }) => {
         }
     }
 
-    return <section className="bg-white bg-opacity-40 rounded shadow-2xl shadow-emerald-400 text-white border-2 border-opacity-30 mx-6">
-        <header>Title: {songObject.songName}</header>
-        <div>Album: {songObject.artistName}</div>
-        <div>Duration: {convertedDuration}</div>
-        <form>
+    return <section className="bg-white bg-opacity-40 rounded shadow-lg shadow-emerald-400 text-white border-2 border-opacity-30 mx-6 grid grid-cols-8 justify-items-center items-center">
+        <header className="col-span-4 text-2xl">{songObject.songName}</header>
+        <div className="col-span-2 text-lg">Album: {songObject.artistName}</div>
+        <div className="text-lg">{convertedDuration}</div>
+        <form className="py-1">
             <button
                 onClick={(clickEvent) => deleteButton(clickEvent)}
-                className="border-white border-2 bg-slate-700 hover:bg-red-500">
+                className="border-white border-2 bg-slate-700 hover:bg-red-500 px-3 rounded-md">
                 Delete
             </button>
         </form>
