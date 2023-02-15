@@ -7,9 +7,8 @@ import { UserSongs } from "../playlists/UserSongs"
 import { MusicContainer } from "../search/MusicContainer"
 import { NewReleases } from "../newreleases/NewReleases"
 import { Browse } from "../browse/Browse"
-import { BrowseCategorySongs } from "../browse/BrowseCategorySongs"
-import { BrowseToplists } from "../browse/BrowseToplists"
-import { ToplistSongs } from "../browse/ToplistSongs"
+import { BrowsePlaylists } from "../browse/BrowsePlaylists"
+import { PlaylistSongs } from "../browse/PlaylistSongs"
 
 export const ApplicationViews = () => {
 	return (
@@ -29,9 +28,8 @@ export const ApplicationViews = () => {
                 <Route path="createPlaylist" element={<CreatePlaylist />} />
                 <Route path="newReleases" element={<NewReleases />} />
                 <Route path="browse" element={<Browse />} />
-                <Route path="browse/:categoryId/songs" element={<BrowseCategorySongs />} />
-                <Route path="browse/:categoryId/playlists" element={<BrowseToplists />} />
-                <Route path="browse/toplists/playlists/:playlistId/songs" element={<ToplistSongs />} />
+                <Route path="browse/:categoryId/playlists" element={<BrowsePlaylists />} />
+                <Route path="browse/categories/playlists/:playlistId/songs" element={<PlaylistSongs />} />
             </Route>
         </Routes>
     )

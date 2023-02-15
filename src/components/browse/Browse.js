@@ -13,7 +13,7 @@ export const Browse = () => {
         }
     }
     useEffect(() => {
-        fetch("https://api.spotify.com/v1/browse/categories?&limit10", trackParameters)
+        fetch("https://api.spotify.com/v1/browse/categories", trackParameters)
         .then(response => response.json())
         .then(data => {
             setCategories(data.categories.items)
@@ -22,7 +22,7 @@ export const Browse = () => {
     
     return <>
     <h2 className="text-white text-4xl flex justify-center underline py-2">Browse Categories</h2>
-    <article className="grid grid-cols-6">
+    <article className="grid grid-cols-5">
         {categories.map(category => <BrowseCategories key={`category--${category.id}`}
         category={category}/>)}
     </article>

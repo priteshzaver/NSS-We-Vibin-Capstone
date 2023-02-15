@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { EachToplistSong } from "./EachToplistSong"
+import { EachPlaylistSong } from "./EachPlaylistSong"
 
-export const ToplistSongs = () => {
+export const PlaylistSongs = () => {
     const [playlistContents, setPlaylistContents] = useState([])
     const [playlistSongs, setPlaylistSongs] = useState([])
     const {playlistId} = useParams()
@@ -30,9 +30,9 @@ export const ToplistSongs = () => {
     }, [])
     
     return <>
-    <h2>{playlistContents.name}</h2>
+    <h2 className="text-white underline text-4xl flex justify-center py-2">{playlistContents.name}</h2>
     <article className="grid">
-        {playlistSongs.map(song => <EachToplistSong key={`song--${song.track?.id}`}
+        {playlistSongs.map(song => <EachPlaylistSong key={`song--${song.track?.id}`}
         song={song}/>)}
     </article>
     </>

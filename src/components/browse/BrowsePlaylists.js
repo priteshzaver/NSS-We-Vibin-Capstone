@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { EachToplist } from "./EachToplist"
+import { EachPlaylist } from "./EachPlaylist"
 
-export const BrowseToplists = () => {
+export const BrowsePlaylists = () => {
+    const [categoryInfo, setCategoryInfo] = useState([])
     const [playlists, setPlaylists] = useState([])
     const { categoryId } = useParams()
     let token = window.localStorage.getItem("token")
@@ -14,6 +15,13 @@ export const BrowseToplists = () => {
         }
     }
     useEffect(() => {
+        fetch(`https://api.spotify.com/v1/browse/categories/${categoryId}?country=us`, trackParameters)
+            .then(response => response.json())
+            .then(data => {
+                setCategoryInfo(data)
+            })
+    }, [])
+    useEffect(() => {
         fetch(`https://api.spotify.com/v1/browse/categories/${categoryId}/playlists`, trackParameters)
             .then(response => response.json())
             .then(data => {
@@ -22,9 +30,9 @@ export const BrowseToplists = () => {
     }, [])
 
     return <>
-        <h2 className="text-white underline text-4xl flex justify-center py-2">Toplists</h2>
+        <h2 className="text-white underline text-4xl flex justify-center py-2">{categoryInfo.name}</h2>
         <article className="grid grid-cols-4">
-            {playlists.map(playlist => <EachToplist key={`playlist--${playlist.id}`}
+            {playlists.map(playlist => <EachPlaylist key={`playlist--${playlist.id}`}
                 playlist={playlist} />)}
         </article>
     </>
