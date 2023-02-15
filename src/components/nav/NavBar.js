@@ -19,6 +19,12 @@ export const NavBar = () => {
                     <Link to="/createPlaylist">Create Vibes</Link>
                 </li>
                 <li className="cursor-pointer text-white text-2xl hover:bg-sky-600 rounded-md container pl-2">
+                    <Link to="/newReleases">New Releases</Link>
+                </li>
+                <li className="cursor-pointer text-white text-2xl hover:bg-sky-600 rounded-md container pl-2">
+                    <Link to="/browse">Browse</Link>
+                </li>
+                <li className="cursor-pointer text-white text-2xl hover:bg-sky-600 rounded-md container pl-2">
                     <Link to="/search">Search</Link>
                 </li>
                 {
