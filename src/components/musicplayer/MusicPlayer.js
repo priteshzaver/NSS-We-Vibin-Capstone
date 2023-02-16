@@ -1,11 +1,8 @@
-import { useContext, useEffect, useState } from "react"
-import TokenContext from "../../SpotifyAccess"
+import { useEffect, useState } from "react"
 import SpotifyPlayer from "react-spotify-web-playback"
-
 
 export const MusicPlayer = ({ selectedTrackUri }) => {
     const [play, setPlay] = useState(false)
-    const accessToken = useContext(TokenContext)
     let token = window.localStorage.getItem("token")
 
     useEffect(() => {

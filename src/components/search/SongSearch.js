@@ -1,6 +1,5 @@
 import { useContext, useState } from "react"
 import TokenContext from "../../SpotifyAccess"
-import { MusicPlayer } from "../musicplayer/MusicPlayer"
 import { Songs } from "./Songs"
 
 export const SongSearch = ({ setterFunction }) => {
