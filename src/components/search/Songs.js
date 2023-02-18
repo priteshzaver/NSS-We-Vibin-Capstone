@@ -1,19 +1,10 @@
 import { useEffect, useState } from "react"
+import { millisecondsToRuntime } from "../helpers/millisecondsToRuntime";
 
 export const Songs = ({ songName, songId, songArtist, songAlbum, trackUri, setterFunction, songDuration, albumPic }) => {
     const [listPlaylists, setListPlaylists] = useState([])
-    function padTo2Digits(num) {
-        return num.toString().padStart(2, '0');
-    }
-    const convertMsToMinutesSeconds = (milliseconds) => {
-        const minutes = Math.floor(milliseconds / 60000);
-        const seconds = Math.round((milliseconds % 60000) / 1000);
-
-        return seconds === 60
-            ? `${minutes + 1}:00`
-            : `${minutes}:${padTo2Digits(seconds)}`;
-    }
-    const convertedDuration = convertMsToMinutesSeconds(songDuration)
+    
+    const convertedDuration = millisecondsToRuntime(songDuration)
     const [playlistSongs, setPlaylistSongs] = useState({
         songId: songId,
         songName: songName,
