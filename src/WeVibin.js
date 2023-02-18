@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import { Login } from "./components/auth/Login"
 import { Register } from "./components/auth/Register"
+//import { MusicPlayer } from "./components/musicplayer/MusicPlayer"
 
 import { NavBar } from "./components/nav/NavBar"
 import { ApplicationViews } from "./components/views/ApplicationViews"

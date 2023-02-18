@@ -1,26 +1,16 @@
 import { useEffect, useState } from "react";
+import { millisecondsToRuntime } from "../helpers/millisecondsToRuntime";
 
 export const NewSongs = ({ songObject }) => {
     const [listPlaylists, setListPlaylists] = useState([])
-    function padTo2Digits(num) {
-        return num.toString().padStart(2, '0');
-    }
-    const convertMsToMinutesSeconds = (milliseconds) => {
-        const minutes = Math.floor(milliseconds / 60000);
-        const seconds = Math.round((milliseconds % 60000) / 1000);
-
-        return seconds === 60
-            ? `${minutes + 1}:00`
-            : `${minutes}:${padTo2Digits(seconds)}`;
-    }
+    const [duration, setDuration] = useState([])
     const localSpotifyUser = localStorage.getItem("spotify_user")
     const spotifyUser = JSON.parse(localSpotifyUser)
     let token = window.localStorage.getItem("token")
     const [saveSong, setSaveSong] = useState({
         playlistId: 0,
     })
-    const [duration, setDuration] = useState([])
-    const convertedDuration = convertMsToMinutesSeconds(duration)
+    const convertedDuration = millisecondsToRuntime(duration)
     useEffect(() => {
         fetch(`http://localhost:8088/playlists`)
             .then(response => response.json())

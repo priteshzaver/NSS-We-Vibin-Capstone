@@ -6,8 +6,6 @@ export const NewReleases = () => {
     const [newReleases, setNewReleases] = useState([])
     const [newSongs, setNewSongs] = useState([])
     const [newAlbums, setNewAlbums] = useState([])
-
-
     let token = window.localStorage.getItem("token")
     const trackParameters = {
         method: "GET",
@@ -16,7 +14,6 @@ export const NewReleases = () => {
             "Authorization": "Bearer " + token
         }
     }
-
     useEffect(() => {
         fetch("https://api.spotify.com/v1/browse/new-releases?&limit=50", trackParameters)
             .then(response => response.json())
@@ -46,11 +43,11 @@ export const NewReleases = () => {
             </div>
             <div>
 
-                <h3 className="text-white text-3xl flex justify-center underline py-2">New Ablums</h3>
+                <h3 className="text-white text-3xl flex justify-center underline py-2">New Albums</h3>
                 <article className="grid">
                     {newAlbums.map(album => <>
                         <NewAlbums key={`album--${album.id}`}
-                            songObject={album} />
+                            albumObject={album} />
                     </>)}
                 </article>
             </div>
