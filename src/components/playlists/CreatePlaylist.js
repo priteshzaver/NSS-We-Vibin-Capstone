@@ -26,7 +26,7 @@ export const CreatePlaylist = () => {
             body: JSON.stringify(playlistToSendToApi)
         })
             .then(() => {
-                navigate("/myPlaylists")
+                navigate("/")
             })
 
     }

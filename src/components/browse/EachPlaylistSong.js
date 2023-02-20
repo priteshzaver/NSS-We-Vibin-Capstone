@@ -45,7 +45,7 @@ export const EachPlaylistSong = ({ song, setterFunction }) => {
     }
 
     return (
-      <form className="bg-slate-300 bg-opacity-40 rounded shadow-lg shadow-emerald-400 text-white border-2 border-opacity-30 mx-2 my-2 grid grid-cols-9 ">
+      <form className="bg-slate-300 bg-opacity-40 rounded shadow-lg shadow-emerald-400 text-white border-2 border-opacity-30 mx-2 my-2 grid grid-cols-9">
         <section className="mx-2 flex items-center">
           <button
             className="border-t-[15px] border-t-transparent border-l-[30px] border-l-green-500 border-b-[15px] border-b-transparent col-span-1"
