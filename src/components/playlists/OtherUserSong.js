@@ -1,18 +1,8 @@
 import { useEffect, useState } from "react"
+import { millisecondsToRuntime } from "../helpers/millisecondsToRuntime";
 
-export const OtherUserSong = ({ songObject }) => {
-    function padTo2Digits(num) {
-        return num.toString().padStart(2, '0');
-    }
-    const convertMsToMinutesSeconds = (milliseconds) => {
-        const minutes = Math.floor(milliseconds / 60000);
-        const seconds = Math.round((milliseconds % 60000) / 1000);
-
-        return seconds === 60
-            ? `${minutes + 1}:00`
-            : `${minutes}:${padTo2Digits(seconds)}`;
-    }
-    const convertedDuration = convertMsToMinutesSeconds(songObject.songDuration)
+export const OtherUserSong = ({ songObject, setterFunction }) => {
+    const convertedDuration = millisecondsToRuntime(songObject.songDuration)
     const [saveSong, setSaveSong] = useState({
         playlistId: 0
     })
@@ -34,13 +24,15 @@ export const OtherUserSong = ({ songObject }) => {
         setFilteredPlaylists(myPlaylists)
     }, [playlists])
 
-    const saveButton = () => {
+    const saveButton = (event) => {
+        event.preventDefault()
         const songToSendToApi = {
             playlistId: saveSong.playlistId,
             songId: songObject.songId,
             artistName: songObject.artistName,
             songName: songObject.songName,
-            songDuration: songObject.songDuration
+            songDuration: songObject.songDuration,
+            trackUri: songObject.trackUri
         }
         if (songToSendToApi.playlistId !== 0) {
             return fetch(`http://localhost:8088/playlistSongs`, {
@@ -56,41 +48,51 @@ export const OtherUserSong = ({ songObject }) => {
         }
     }
 
-    return <section className="bg-white bg-opacity-40 rounded shadow-lg shadow-emerald-400 text-white border-2 border-opacity-30 mx-6 grid grid-cols-8 justify-items-center items-center">
-        
-            <header className="col-span-3 text-2xl">{songObject.songName}</header>
-            <div className="col-span-2 text-lg">{songObject.artistName}</div>
-            <div className="text-lg">{convertedDuration}</div>
-        
-        
-            <form className="py-1 col-span-2 grid justify-self-center">
-                <fieldset>
-                    <label>Save to Playlist: </label>
-                    <select className="text-black"
-                        onChange={(event) => {
-                            const copy = { ...saveSong }
-                            copy.playlistId = parseInt(event.target.value)
-                            setSaveSong(copy)
-                        }}>
-                        <option value="0">Choose Playlist</option>
-                        {filteredPlaylists.map(playlist => {
-                            return <>
-                                <option value={playlist.id}
+    return (
+      <section className="bg-slate-300 bg-opacity-40 rounded shadow-lg shadow-emerald-400 text-white border-2 border-opacity-30 mx-6 grid grid-cols-9 place-items-center">
+        <section className="mx-2 flex items-center">
+          <button
+            className="border-t-[15px] border-t-transparent border-l-[30px] border-l-green-500 border-b-[15px] border-b-transparent col-span-1"
+            value={songObject.trackUri}
+            onClick={(clickevent) => {
+              clickevent.preventDefault();
+              setterFunction(clickevent.target.value);
+            }}
+          ></button>
+        </section>
+        <header className="col-span-3 text-2xl">{songObject.songName}</header>
+        <div className="col-span-2 text-lg">{songObject.artistName}</div>
+        <div className="text-lg">{convertedDuration}</div>
 
-                                >
-                                    {playlist.playlistName}
-                                </option>
-                            </>
-                        })}
-                    </select>
-                </fieldset>
+        <form className="py-1 col-span-2 grid justify-self-center">
+          <fieldset>
+            <label>Save to Playlist: </label>
+            <select
+              className="text-black"
+              onChange={(event) => {
+                const copy = { ...saveSong };
+                copy.playlistId = parseInt(event.target.value);
+                setSaveSong(copy);
+              }}
+            >
+              <option value="0">Choose Playlist</option>
+              {filteredPlaylists.map((playlist) => {
+                return (
+                  <>
+                    <option value={playlist.id}>{playlist.playlistName}</option>
+                  </>
+                );
+              })}
+            </select>
+          </fieldset>
 
-                <button
-                    onClick={(clickEvent) => saveButton(clickEvent)}
-                    className="border-white border-2 bg-slate-700 hover:bg-green-500 mt-2 rounded-md">
-                    Save Song
-                </button>
-            </form>
-        
-    </section>
+          <button
+            onClick={(clickEvent) => saveButton(clickEvent)}
+            className="border-white border-2 bg-slate-700 hover:bg-green-500 mt-2 rounded-md"
+          >
+            Save Song
+          </button>
+        </form>
+      </section>
+    );
 }

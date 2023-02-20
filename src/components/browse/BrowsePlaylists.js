@@ -15,7 +15,7 @@ export const BrowsePlaylists = () => {
         }
     }
     useEffect(() => {
-        fetch(`https://api.spotify.com/v1/browse/categories/${categoryId}?country=us`, trackParameters)
+        fetch(`https://api.spotify.com/v1/browse/categories/${categoryId}?&country=us`, trackParameters)
             .then(response => response.json())
             .then(data => {
                 setCategoryInfo(data)

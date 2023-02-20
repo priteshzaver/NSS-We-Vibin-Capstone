@@ -1,10 +1,9 @@
 import { Route, Routes } from "react-router-dom"
 import { Login } from "./components/auth/Login"
 import { Register } from "./components/auth/Register"
-//import { MusicPlayer } from "./components/musicplayer/MusicPlayer"
-
 import { NavBar } from "./components/nav/NavBar"
-import { ApplicationViews } from "./components/views/ApplicationViews"
+import { MusicContainer } from "./components/search/MusicContainer"
+
 import { Authorized } from "./components/views/Authorized"
 
 export const WeVibin = () => {
@@ -16,7 +15,7 @@ export const WeVibin = () => {
         <Authorized>
             <>
                 <NavBar/>
-                <ApplicationViews/>
+                <MusicContainer/>
                 
             </>
         </Authorized>
