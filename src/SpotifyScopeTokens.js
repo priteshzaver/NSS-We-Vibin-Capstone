@@ -7,7 +7,7 @@ export const SpotifyScopeToken = () => {
     const REDIRECT_URI = "http://localhost:3000"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
-    const SCOPE = "streaming user-read-email user-read-private user-read-playback-state"
+    const SCOPE = "streaming user-read-email user-read-private user-read-playback-state app-remote-control user-modify-playback-state user-read-currently-playing"
 
     const [token, setToken] = useState("")
 

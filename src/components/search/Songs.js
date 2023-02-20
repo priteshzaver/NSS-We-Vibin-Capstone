@@ -3,7 +3,6 @@ import { millisecondsToRuntime } from "../helpers/millisecondsToRuntime";
 
 export const Songs = ({ songName, songId, songArtist, songAlbum, trackUri, setterFunction, songDuration, albumPic }) => {
     const [listPlaylists, setListPlaylists] = useState([])
-    
     const convertedDuration = millisecondsToRuntime(songDuration)
     const [playlistSongs, setPlaylistSongs] = useState({
         songId: songId,
@@ -29,7 +28,8 @@ export const Songs = ({ songName, songId, songArtist, songAlbum, trackUri, sette
             songId: songId,
             artistName: playlistSongs.artistName,
             songName: playlistSongs.songName,
-            songDuration: songDuration
+            songDuration: songDuration,
+            trackUri: trackUri
         }
         if (songToSendToApi.playlistId !== 0) {
             fetch(`http://localhost:8088/playlistSongs`, {

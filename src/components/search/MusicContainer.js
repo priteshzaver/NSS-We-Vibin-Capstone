@@ -1,17 +1,16 @@
-import { useState } from "react"
-import { MusicPlayer } from "../musicplayer/MusicPlayer"
-
-import { SongSearch } from "./SongSearch"
-
+import { useState } from "react";
+import { MusicPlayer } from "../musicplayer/MusicPlayer";
+import { ApplicationViews } from "../views/ApplicationViews";
 
 export const MusicContainer = () => {
-    const [selectedTrackUri, setSelectedUri] = useState("")
+  const [selectedTrackUri, setSelectedUri] = useState("");
 
-    return <div className="grid">
-        <SongSearch setterFunction={setSelectedUri}/>
-        <div className="mx-4 mt-5">
-        <MusicPlayer selectedTrackUri={selectedTrackUri}/>
-
-        </div>
-        </div>
-}
+  return (
+    <div className="grid">
+      <ApplicationViews setterFunction={setSelectedUri} />
+      <div className="mx-4 mt-5">
+        <MusicPlayer selectedTrackUri={selectedTrackUri} />
+      </div>
+    </div>
+  );
+};

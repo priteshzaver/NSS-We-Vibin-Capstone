@@ -1,22 +1,12 @@
 import { Link } from "react-router-dom"
+import { millisecondsToRuntime } from "../helpers/millisecondsToRuntime"
 
 export const UserPlaylist = ({ playlistObject }) => {
     let sum = 0
     playlistObject.playlistSongs.forEach(function (item) {
         sum += item.songDuration
     })
-    function padTo2Digits(num) {
-        return num.toString().padStart(2, '0');
-    }
-    const convertMsToMinutesSeconds = (milliseconds) => {
-        const minutes = Math.floor(milliseconds / 60000);
-        const seconds = Math.round((milliseconds % 60000) / 1000);
-
-        return seconds === 60
-            ? `${minutes + 1}:00`
-            : `${minutes}:${padTo2Digits(seconds)}`;
-    }
-    const convertedDuration = convertMsToMinutesSeconds(sum)
+    const convertedDuration = millisecondsToRuntime(sum)
     const deletePlaylistButton = () => {
         const confirmDelete = window.confirm(`Are you sure you want to delete playlist ${playlistObject.playlistName}?`)
         if (confirmDelete) {

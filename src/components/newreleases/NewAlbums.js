@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NewAlbumSongs } from "./NewAlbumSongs";
 //import { NewAlbumSongs } from "./NewAlbumSongs"
 
-export const NewAlbums = ({ albumObject }) => {
+export const NewAlbums = ({ albumObject, setterFunction }) => {
   const [songsInAlbum, setSongsInAlbum] = useState([]);
   const [listPlaylists, setListPlaylists] = useState([]);
   const [saveSong, setSaveSong] = useState([{
@@ -10,6 +10,7 @@ export const NewAlbums = ({ albumObject }) => {
     songId: "",
     songName: "",
     songDuration: 0,
+    trackUri: ""
   }]);
   const localSpotifyUser = localStorage.getItem("spotify_user");
   const spotifyUser = JSON.parse(localSpotifyUser);
@@ -47,6 +48,7 @@ export const NewAlbums = ({ albumObject }) => {
       artistName: albumObject.artists[0].name,
       songName: saveSong.songName,
       songDuration: saveSong.songDuration,
+      trackUri: saveSong.trackUri
     };
     if (songToSendToApi.playlistId !== 0) {
       fetch(`http://localhost:8088/playlistSongs`, {
@@ -76,6 +78,7 @@ export const NewAlbums = ({ albumObject }) => {
             song={song}
             setSaveSong={setSaveSong}
             saveSong={saveSong}
+            setterFunction={setterFunction}
           />
         ))}
         <form className="grid grid-cols-2 items-center">
