@@ -1,4 +1,4 @@
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { MyPlaylists } from "../playlists/MyPlaylists";
 import { CreatePlaylist } from "../playlists/CreatePlaylist";
 import { OtherUsersPlaylists } from "../playlists/OtherUsersPlaylists";
@@ -13,18 +13,8 @@ import { SongSearch } from "../search/SongSearch";
 export const ApplicationViews = ({ setterFunction }) => {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <Outlet />
-          </>
-        }
-      >
-        <Route
-          path="myPlaylists"
-          element={<MyPlaylists />}
-        />
+      
+        <Route path="/" element={<MyPlaylists />} />
         <Route
           path="myPlaylists/:playlistId/songs"
           element={<UserSongs setterFunction={setterFunction} />}
@@ -33,26 +23,17 @@ export const ApplicationViews = ({ setterFunction }) => {
           path="search"
           element={<SongSearch setterFunction={setterFunction} />}
         />
-        <Route
-          path="otherPlaylists"
-          element={<OtherUsersPlaylists/>}
-        />
+        <Route path="otherPlaylists" element={<OtherUsersPlaylists />} />
         <Route
           path="otherPlaylists/:playlistId/songs"
           element={<OtherPlaylistSongs setterFunction={setterFunction} />}
         />
-        <Route
-          path="createPlaylist"
-          element={<CreatePlaylist />}
-        />
+        <Route path="createPlaylist" element={<CreatePlaylist />} />
         <Route
           path="newReleases"
           element={<NewReleases setterFunction={setterFunction} />}
         />
-        <Route
-          path="browse"
-          element={<Browse />}
-        />
+        <Route path="browse" element={<Browse />} />
         <Route
           path="browse/:categoryId/playlists"
           element={<BrowsePlaylists />}
@@ -61,7 +42,7 @@ export const ApplicationViews = ({ setterFunction }) => {
           path="browse/categories/playlists/:playlistId/songs"
           element={<PlaylistSongs setterFunction={setterFunction} />}
         />
-      </Route>
+      
     </Routes>
   );
 };

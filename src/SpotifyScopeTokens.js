@@ -37,11 +37,14 @@ export const SpotifyScopeToken = () => {
                     <a href={`${AUTH_ENDPOINT}?client_id=${apiKeys.CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`} className="text-white">Login
                         to Spotify</a>
                     : <>
+                    
                     <SpotifyAccess/>
-                    <button className="text-white" onClick={logout}>Logout</button>
                     </>
                 }
             </header>
         </div>
     );
 }
+{/* <button className="text-white" onClick={logout}>
+  Logout
+</button>; */}

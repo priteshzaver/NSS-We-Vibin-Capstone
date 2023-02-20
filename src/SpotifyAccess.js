@@ -24,9 +24,13 @@ export const SpotifyAccess = () => {
 
 
     return (
-        <TokenContext.Provider value={accessToken}>
-            <WeVibin />
-        </TokenContext.Provider>
-    )
+      <TokenContext.Provider value={accessToken}>
+        <h1 className="text-5xl text-white ml-4 font-bold">We Vibin'</h1>
+        <div className="text-3xl text-white ml-4 font-semibold">
+          Share and explore music with your friends
+        </div>
+        <WeVibin />
+      </TokenContext.Provider>
+    );
 }
 export default TokenContext
