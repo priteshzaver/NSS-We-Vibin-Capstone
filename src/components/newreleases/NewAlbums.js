@@ -63,26 +63,28 @@ export const NewAlbums = ({ albumObject, setterFunction }) => {
     }
   };
   return (
-    <section className="bg-slate-300 bg-opacity-40 rounded shadow-lg shadow-emerald-400 text-white border-2 border-opacity-30 mx-2 my-2">
+    <section className="bg-slate-300 bg-opacity-40 rounded shadow-lg shadow-emerald-400 text-white border-2 border-opacity-30 mx-2 my-2 pb-2">
       <div className="grid grid-cols-3 justify-items-center">
-        <header className="col-span-3 text-xl">{albumObject.name}</header>
-        <div className="text-lg">{albumObject.artists[0].name}</div>
+        <header className="col-span-3 text-2xl">{albumObject.name}</header>
+        <div className="text-xl">{albumObject.artists[0].name}</div>
         <div className="text-lg">{albumObject.release_date}</div>
         <div className="text-lg">{albumObject.total_tracks} tracks</div>
       </div>
-      <details className="px-2">
+      <details className="pl-2 col-span-3">
         <summary>Tracks and Save Options</summary>
+        <div className="my-2">
         {songsInAlbum.map((song) => (
           <NewAlbumSongs
-            key={song.id}
-            song={song}
-            setSaveSong={setSaveSong}
-            saveSong={saveSong}
-            setterFunction={setterFunction}
+          key={song.id}
+          song={song}
+          setSaveSong={setSaveSong}
+          saveSong={saveSong}
+          setterFunction={setterFunction}
           />
-        ))}
-        <form className="grid grid-cols-2 items-center">
-          <fieldset>
+          ))}
+          </div>
+        <form className="grid grid-cols-6 items-center">
+          <fieldset className="col-span-3 place-self-center">
             <label>Save to Playlist: </label>
             <select
               className="text-black"
@@ -110,7 +112,7 @@ export const NewAlbums = ({ albumObject, setterFunction }) => {
           </fieldset>
           <button
             onClick={(clickEvent) => saveButton(clickEvent)}
-            className="border-white border-2 bg-slate-700 hover:bg-green-500 mt-2 rounded-md mb-2"
+            className="border-white border-2 bg-slate-700 hover:bg-green-500 rounded-md col-span-3 mx-11"
           >
             Save Song
           </button>

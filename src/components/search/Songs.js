@@ -68,7 +68,7 @@ export const Songs = ({ songName, songId, songArtist, songAlbum, trackUri, sette
             <section>
                 <img src={albumPic} alt="Album photo" className="w-20 rounded-md my-1" />
             </section>
-            <section className=" grid content-center mt-2 col-span-2 mr-1">
+            <section className="grid content-center mt-2 col-span-2 mr-1">
                 <fieldset>
                     <label>Save to Playlist: </label>
                     <select className="text-black"
