@@ -40,8 +40,8 @@ export const NewReleases = ({ setterFunction }) => {
       <h2 className="text-white text-4xl flex justify-center underline py-2">
         New Releases
       </h2>
-      <div className="grid grid-cols-2">
-        <div>
+      <div className="grid grid-cols-5">
+        <div className="col-span-2">
           <h3 className="text-white text-3xl flex justify-center underline py-2">
             New Singles
           </h3>
@@ -57,7 +57,7 @@ export const NewReleases = ({ setterFunction }) => {
             ))}
           </article>
         </div>
-        <div>
+        <div className="ml-2 col-span-3">
           <h3 className="text-white text-3xl flex justify-center underline py-2">
             New Albums
           </h3>

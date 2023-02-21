@@ -53,14 +53,16 @@ export const EachUserSong = ({ songObject, setterFunction }) => {
   return (
     <form className="bg-slate-300 bg-opacity-40 rounded shadow-lg shadow-emerald-400 text-white border-2 border-opacity-30 grid grid-cols-10">
       <section className="mx-2 flex items-center">
-        <button
-          className="border-t-[15px] border-t-transparent border-l-[30px] border-l-green-500 border-b-[15px] border-b-transparent col-span-1"
-          value={songObject.trackUri}
-          onClick={(clickevent) => {
-            clickevent.preventDefault();
-            setterFunction(clickevent.target.value);
-          }}
-        ></button>
+        <div class="w-11 h-11 pl-2 rounded-full bg-white grid place-content-center">
+          <button
+            className="border-t-[15px] border-t-transparent border-l-[30px] border-l-green-500 border-b-[15px] border-b-transparent col-span-1 relative"
+            value={songObject.trackUri}
+            onClick={(clickevent) => {
+              clickevent.preventDefault();
+              setterFunction(clickevent.target.value);
+            }}
+          ></button>
+        </div>
       </section>
       <section className="col-span-4 grid content-center justify-items-center">
         <div className="text-2xl font-semibold">{songObject.songName}</div>
@@ -94,7 +96,8 @@ export const EachUserSong = ({ songObject, setterFunction }) => {
               {listPlaylists.map((listPlaylist) => {
                 return (
                   <>
-                    {spotifyUser.id === listPlaylist.userId && listPlaylist.id !== songObject.playlistId ? (
+                    {spotifyUser.id === listPlaylist.userId &&
+                    listPlaylist.id !== songObject.playlistId ? (
                       <option value={listPlaylist.id}>
                         {listPlaylist.playlistName}
                       </option>

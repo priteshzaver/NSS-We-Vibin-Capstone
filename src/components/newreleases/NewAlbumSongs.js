@@ -16,11 +16,11 @@ export const NewAlbumSongs = ({ song, saveSong, setSaveSong, setterFunction }) =
   };
 
   return (
-    <div className="grid grid-cols-6 py-1">
+    <div className="grid grid-cols-6 justify-items-center content-center">
       <p className="col-span-1">
-        <section className="my-2 flex items-center">
+        <section className="grid place-self-center">
           <button
-            className="border-t-[15px] border-t-transparent border-l-[30px] border-l-green-500 border-b-[15px] border-b-transparent col-span-1"
+            className="border-t-[10px] border-t-transparent border-l-[20px] border-l-green-500 border-b-[10px] border-b-transparent col-span-1"
             value={song.uri}
             onClick={(clickevent) => {
               clickevent.preventDefault();
@@ -30,7 +30,7 @@ export const NewAlbumSongs = ({ song, saveSong, setSaveSong, setterFunction }) =
         </section>
       </p>
       <input
-        className="col-span-1"
+        className="col-span-1 h-[20px] place-self-center"
         type="radio"
         value={song.id}
         checked={song.id === saveSong.songId}
