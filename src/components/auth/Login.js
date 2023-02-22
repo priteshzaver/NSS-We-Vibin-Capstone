@@ -36,7 +36,7 @@ export const Login = () => {
                             setEmail(event.target.value)
                         }}
                         placeholder="Email address"
-                        className="border-lime-500 border-2"
+                        className="border-lime-500 border-2 pl-1"
                         required autoFocus />
                 </fieldset>
                 <fieldset>

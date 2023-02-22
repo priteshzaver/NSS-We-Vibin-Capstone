@@ -70,9 +70,9 @@ export const NewAlbums = ({ albumObject, setterFunction }) => {
         <div className="text-lg">{albumObject.release_date}</div>
         <div className="text-lg">{albumObject.total_tracks} tracks</div>
       </div>
-      <details className="pl-2 col-span-3">
+      <details className="px-2 col-span-3">
         <summary>Tracks and Save Options</summary>
-        <div className="my-2">
+        <div className="my-2 grid grid-cols-2">
         {songsInAlbum.map((song) => (
           <NewAlbumSongs
           key={song.id}

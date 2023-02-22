@@ -46,14 +46,16 @@ export const EachPlaylistSong = ({ song, setterFunction }) => {
   return (
     <form className="bg-slate-300 bg-opacity-40 rounded shadow-lg shadow-emerald-400 text-white border-2 border-opacity-30 mx-2 my-2 grid grid-cols-9">
       <section className="mx-2 flex items-center">
-        <button
-          className="border-t-[15px] border-t-transparent border-l-[30px] border-l-green-500 border-b-[15px] border-b-transparent"
-          value={song.track.uri}
-          onClick={(clickevent) => {
-            clickevent.preventDefault();
-            setterFunction(clickevent.target.value);
-          }}
-        ></button>
+        <div class="w-11 h-11 pl-2 rounded-full bg-slate-700 hover:bg-slate-500 grid place-content-center">
+          <button
+            className="border-t-[15px] border-t-transparent border-l-[30px] border-l-green-500 border-b-[15px] border-b-transparent col-span-1 relative hover:scale-125 duration-300"
+            value={song.track.uri}
+            onClick={(clickevent) => {
+              clickevent.preventDefault();
+              setterFunction(clickevent.target.value);
+            }}
+          ></button>
+        </div>
       </section>
       <section className="col-span-3 grid content-center">
         <div className="text-2xl font-semibold truncate">{song.track.name}</div>

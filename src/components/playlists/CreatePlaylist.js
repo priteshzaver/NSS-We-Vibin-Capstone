@@ -41,7 +41,7 @@ export const CreatePlaylist = () => {
                             <label>Playlist Name: </label>
                             <input
                                 required autoFocus
-                                className="text-black"
+                                className="text-black pl-1"
                                 type="text"
                                 placeholder="Playlist Name"
                                 value={playlist.playlistName}
@@ -59,7 +59,7 @@ export const CreatePlaylist = () => {
                             <label>Playlist Description: </label>
                             <input
                                 type="text"
-                                className="text-black"
+                                className="text-black pl-1"
                                 placeholder="Playlist Description"
                                 value={playlist.description}
                                 size="28"

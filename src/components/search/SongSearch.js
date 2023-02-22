@@ -16,7 +16,7 @@ export const SongSearch = ({ setterFunction }) => {
     const findSong = () => {
         return <button className="border-white border-2 bg-slate-700 hover:bg-green-500 px-3 rounded-md"
             onClick={() => {
-                fetch(`https://api.spotify.com/v1/search?q=` + searchTerms + `&type=track%2Cartist%2Calbum&limit=10`, trackParameters)
+                fetch(`https://api.spotify.com/v1/search?q=` + searchTerms + `&type=track%2Cartist%2Calbum&limit=50`, trackParameters)
                     .then(response => response.json())
                     .then(data => {
                         setSongs(data.tracks.items)

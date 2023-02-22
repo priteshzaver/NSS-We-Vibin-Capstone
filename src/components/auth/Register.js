@@ -59,7 +59,7 @@ export const Register = (props) => {
                     <fieldset className="flex flex-col mb-2">
                         <label className="text-white"> Full Name </label>
                         <input onChange={updateCustomer}
-                            className="border-lime-500 border-2"
+                            className="border-lime-500 border-2 pl-1"
                             type="text"
                             id="fullName"
                             placeholder="Enter your name"
@@ -68,7 +68,7 @@ export const Register = (props) => {
                     <fieldset className="flex flex-col">
                         <label className="text-white"> Email address </label>
                         <input onChange={updateCustomer}
-                            className="border-lime-500 border-2"
+                            className="border-lime-500 border-2 pl-1"
                             type="email"
                             id="email"
                             placeholder="Email address"
