@@ -52,14 +52,16 @@ export const OtherUserSong = ({ songObject, setterFunction }) => {
   return (
     <section className="bg-slate-300 bg-opacity-40 rounded shadow-lg shadow-emerald-400 text-white border-2 border-opacity-30 grid grid-cols-9">
       <section className="mx-2 flex items-center">
+        <div class="w-11 h-11 pl-2 rounded-full bg-slate-700 hover:bg-slate-500 grid place-content-center">
         <button
-          className="border-t-[15px] border-t-transparent border-l-[30px] border-l-green-500 border-b-[15px] border-b-transparent col-span-1"
+          className="border-t-[15px] border-t-transparent border-l-[30px] border-l-green-500 border-b-[15px] border-b-transparent col-span-1 relative hover:scale-125 duration-300"
           value={songObject.trackUri}
           onClick={(clickevent) => {
             clickevent.preventDefault();
             setterFunction(clickevent.target.value);
           }}
-        ></button>
+          ></button>
+          </div>
       </section>
       <section className="col-span-4 grid content-center justify-items-center">
         <div className="text-2xl font-semibold">{songObject.songName}</div>

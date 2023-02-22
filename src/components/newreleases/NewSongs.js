@@ -60,14 +60,16 @@ export const NewSongs = ({ songObject, setterFunction }) => {
         <header className="text-2xl">{songObject.name}</header>
       </div>
       <section className="ml-3 flex items-center col-span-1">
+        <div class="w-11 h-11 pl-2 rounded-full bg-slate-700 hover:bg-slate-500 grid place-content-center">
         <button
-          className="border-t-[15px] border-t-transparent border-l-[30px] border-l-green-500 border-b-[15px] border-b-transparent"
+          className="border-t-[15px] border-t-transparent border-l-[30px] border-l-green-500 border-b-[15px] border-b-transparent col-span-1 relative hover:scale-125 duration-300"
           value={songObject.uri}
           onClick={(clickevent) => {
             clickevent.preventDefault();
             setterFunction(clickevent.target.value);
           }}
-        ></button>
+          ></button>
+          </div>
       </section>
       <div className="col-span-2 grid place-content-center">
         <div className="justify-self-center text-xl">
