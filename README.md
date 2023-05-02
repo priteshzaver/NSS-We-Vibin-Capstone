@@ -55,9 +55,22 @@ Replace the `PUT YOUR CLIENT ID HERE` and `PUT YOUR CLIENT SECRET HERE` placehol
 
 ### Install Dependencies
 
+#### Tailwind CSS
+
+We Vibin' uses Tailwind CSS to style the application. To install Tailwind CSS, run the following command:
+
 ```bash
-# Install dependencies
-$ npm install
+# Install Tailwind CSS
+$ npm install tailwindcss
+```
+
+#### React Spotify Web Playback
+
+We Vibin' uses `react-spotify-web-playback` to provide a Spotify playback widget. To install `react-spotify-web-playback`, run the following command:
+
+```bash
+# Install react-spotify-web-playback
+$ npm install react-spotify-web-playback
 ```
 
 ### Start the Application
@@ -75,7 +88,12 @@ We Vibin' uses a JSON database to store user data. In order to use the applicati
 
 You can find the JSON database at this link: https://github.com/priteshzaver/We-Vibin-API
 
-Clone the API repository and follow the instructions in the README to set up the database.
+Clone the API repository and follow the instructions in the README to set up the database. Once you have the database set up, run the following command to start the database server:
+
+```bash
+# Start the database server
+$ json-server database.json -p 8088 -w
+```
 
 ## Spotify Premium
 
