@@ -21,7 +21,7 @@ From your command line:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/USERNAME/We-Vibin.git
+$ git clone https://github.com/priteshzaver/NSS-We-Vibin-Capstone
 
 # Go into the repository
 $ cd We-Vibin
