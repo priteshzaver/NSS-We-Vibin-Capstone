@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# We Vibin'
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We Vibin' is a web application written in ReactJS, which enables users to share music, listen to music, search for music on Spotify, save songs to playlists, and view other users' playlists. This application is designed to enhance the music sharing experience of Spotify Premium users.
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+We Vibin' uses the following technologies:
 
-### `npm start`
+- ReactJS: A popular JavaScript library for building user interfaces.
+- Tailwind CSS: A utility-first CSS framework for building responsive and modern web applications.
+- OAuth: A protocol that allows secure authorization and authentication.
+- react-spotify-web-playback: A React component that provides a Spotify playback widget.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/) (which comes with npm) installed on your computer.
 
-### `npm test`
+### Clone the Repository
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+From your command line:
 
-### `npm run build`
+```bash
+# Clone this repository
+$ git clone https://github.com/USERNAME/We-Vibin.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Go into the repository
+$ cd We-Vibin
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Create a Spotify Developer Account
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To use the Spotify API, you will need to create a Spotify Developer account and register a new app. Follow these steps:
 
-### `npm run eject`
+1. Go to https://developer.spotify.com/dashboard and log in to your Spotify account.
+2. Click "Create an App".
+3. Give your app a name and description. It can be whatever you like.
+4. Set the redirect URI to `http://localhost:3000` (or the server from which you will be serving).
+5. Click "Create".
+6. Copy the Client ID and Client Secret values.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Set Up Access Tokens
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Create a new file in the application called `AccessTokens.js`. Put the following code inside the file:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```javascript
+export default {
+	CLIENT_ID: "PUT YOUR CLIENT ID HERE",
+	CLIENT_SECRET: "PUT YOUR CLIENT SECRET HERE",
+};
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Replace the `PUT YOUR CLIENT ID HERE` and `PUT YOUR CLIENT SECRET HERE` placeholders with the Client ID and Client Secret values you copied earlier.
 
-## Learn More
+**Note:** This file is in the `.gitignore` so as long as you have made `AccessTokens.js` exactly as instructed, it should not be pushed up to your GitHub account.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Install Dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+# Install dependencies
+$ npm install
+```
 
-### Code Splitting
+### Start the Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+# Start the application
+$ npm start
+```
 
-### Analyzing the Bundle Size
+The application will be running on `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Database
 
-### Making a Progressive Web App
+We Vibin' uses a JSON database to store user data. In order to use the application, you will need to clone the API repository as well, which contains the JSON database.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+You can find the JSON database at this link: https://github.com/priteshzaver/We-Vibin-API
 
-### Advanced Configuration
+Clone the API repository and follow the instructions in the README to set up the database.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Spotify Premium
 
-### Deployment
+To use We Vibin', you must have a Spotify Premium account. If you do not have one, you can sign up for a free trial on the Spotify website.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Conclusion
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+We Vibin' is a fun and easy way to share and discover music with other Spotify Premium users. It's built with modern web technologies and provides a seamless experience for music lovers. We hope you enjoy using it!
