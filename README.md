@@ -1,6 +1,6 @@
 # We Vibin'
 
-We Vibin' is a web application written in ReactJS, which enables users to share music, listen to music, search for music on Spotify, save songs to playlists, and view other users' playlists. This application is designed to enhance the music sharing experience of Spotify Premium users.
+We Vibin' is the front-end capstone project for the Full-Time Web Developer Bootcamp (C#/.Net) cohort at Nashville Software School. It is a web application written in ReactJS, which enables users to share music, listen to music, search for music on Spotify, save songs to playlists, and view other users' playlists. This application is designed to enhance the music sharing experience of Spotify Premium users.
 
 ## Technologies Used
 
