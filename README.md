@@ -80,8 +80,6 @@ $ npm install react-spotify-web-playback
 $ npm start
 ```
 
-The application will be running on `http://localhost:3000`.
-
 ## Database
 
 We Vibin' uses a JSON database to store user data. In order to use the application, you will need to clone the API repository as well, which contains the JSON database.
