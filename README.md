@@ -61,7 +61,7 @@ We Vibin' uses Tailwind CSS to style the application. To install Tailwind CSS, r
 
 ```bash
 # Install Tailwind CSS
-$ npm install tailwindcss
+$ npm install -D tailwindcss
 ```
 
 #### React Spotify Web Playback
