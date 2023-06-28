@@ -99,4 +99,4 @@ To use We Vibin', you must have a Spotify Premium account. If you do not have on
 
 ## Conclusion
 
-We Vibin' is a fun and easy way to share and discover music with other Spotify Premium users. It's built with modern web technologies and provides a seamless experience for music lovers. We hope you enjoy using it!
+We Vibin' is a fun and easy way to share and discover music with other Spotify Premium users. It's built with modern web technologies and provides a seamless experience for music lovers. I hope you enjoy using it!
